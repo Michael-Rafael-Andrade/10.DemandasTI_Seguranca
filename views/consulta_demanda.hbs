@@ -1,0 +1,16 @@
+{{> navbar }}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Detalhes da Demanda</h5>
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><strong>ID:</strong> {{demanda.id}}</li>
+            <li class="list-group-item"><strong>Título:</strong> {{demanda.titulo}}</li>
+            <li class="list-group-item"><strong>Texto:</strong> {{demanda.texto}}</li>
+            <li class="list-group-item"><strong>Urgência:</strong> {{demanda.urgencia}}</li>
+            <li class="list-group-item"><strong>Status:</strong> {{demanda.status}}</li>
+            <li class="list-group-item"><strong>Criada em:</strong> {{demanda.criada_em_fmt}}</li>
+        </ul>
+
+        <a href="/" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>

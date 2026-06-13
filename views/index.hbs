@@ -1,0 +1,60 @@
+{{> navbar }}
+<div class="card h-100">
+    <div class="card-body">
+        <h5 class="card-title">Demandas Cadastradas</h5>
+        {{#if demandas}}
+        <div class="table-responsive" style="min-height: 60vh;">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>Urgência</th>
+                        <th>Status</th>
+                        <th>Criada Em</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each demandas}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{titulo}}</td>
+                        <td>{{urgencia}}</td>
+                        <td>{{status}}</td>
+                        <td>{{criada_em_fmt}}</td>
+                        <td class="d-flex">
+                            <a href="/demandas/consulta/{{id}}" class="btn btn-sm btn-secondary">
+                            <i class="bi bi-eye"></i></a>
+
+                            <div class="dropdown">
+                                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-arrow-repeat"></i></button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <form method="POST" action="/demandas/altera_status/{{id}}/pendente" class="m-0">
+                                            <button type="submit" class="dropdown-item">Pendente</button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="/demandas/altera_status/{{id}}/em_andamento" class="m-0">
+                                            <button type="submit" class="dropdown-item">Em andamento</button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="/demandas/altera_status/{{id}}/concluido" class="m-0">
+                                            <button type="submit" class="dropdown-item">Concluída</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <p class="text-muted">Nenhuma demanda cadastrada.</p>
+        {{/if}}
+    </div>
+</div>
