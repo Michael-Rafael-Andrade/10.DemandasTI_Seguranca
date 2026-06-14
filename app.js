@@ -59,6 +59,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/demandas', demandasRouter);
+app.use('/usuarios', usuariosRouter);
 
 // app.use('/users', usersRouter);
 

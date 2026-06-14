@@ -11,7 +11,7 @@ const opcoes = {
     // define como o token será extraído da requisição: do header Authorization: Bearer <token>
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     // chave para verificar a assinatura do token
-    secretOKey: JWT_SECRET,
+    secretOrKey: JWT_SECRET,
 };
 
 passport.use(

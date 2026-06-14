@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { Usuario } = require('../model/modelos.js');
-const { JWT_SCRET } = require('../config/passport');
+const { JWT_SECRET } = require('../config/passport.js');
 
 // Cadastra um novo usuário
 exports.cadastro = async function (req, res) {
