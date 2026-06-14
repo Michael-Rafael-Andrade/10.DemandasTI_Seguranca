@@ -76,6 +76,8 @@ module.exports = function (emProd) {
                 frameAncestors: ["'none'"],
 
                 // Regra padrão para qualquer tipo de recurso não coberto pelas demais diretivas. "'self'" significa apenas o próprio servidor defaultSrc: ["'self'"],
+                defaultSrc: ["'self'"],
+
 
             },
         },

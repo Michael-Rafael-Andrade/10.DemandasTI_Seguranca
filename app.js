@@ -8,12 +8,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs'); // importação do hbs
 var session = require('express-session'); // importar o session do express
-// var passport = require('./config/passport');
+var passport = require('./config/passport');
+var helmetMiddleware = require('./config/helmet'); // importar o arquivo de configuração do helmet
 
 var indexRouter = require('./routes/rotasIndex');
 var demandasRouter = require('./routes/rotasDemandas');
-
-// var usersRouter = require('./routes/users');
+var usuariosRouter = require('./routes/rotasUsuarios');
 
 var app = express();
 
@@ -28,6 +28,11 @@ app.use(logger('dev'));
 
 // definição do ambiente de execução, posição é importante
 var emProd = process.env.ENV === 'prod';
+
+
+// Helmet = Cabeçalho de Segurança HTTP
+// Deve ser registrado antes de qualquer rota ou middleware que envia respostas
+app.use(helmetMiddleware(emProd));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
