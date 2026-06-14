@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
     // OU como opção de fallback
@@ -24,10 +24,10 @@ const sequelize = new Sequelize(
 
 
 // APÓS TESTAR EU FAÇO UM COMENTÁRIO NESTAS LINHAS QUE TESTA O SERVIDOR
-// sequelize.authenticate().then(() => {
-//     console.log('Conexão com banco de dados estabelecida com sucesso.');
-// }).catch((error) => {
-//     console.error('Erro ao se conectar ao banco de dados: ', error);
-// })
+sequelize.authenticate().then(() => {
+    console.log('Conexão com banco de dados estabelecida com sucesso.');
+}).catch((error) => {
+    console.error('Erro ao se conectar ao banco de dados: ', error);
+})
 
 module.exports = sequelize; // exportar o módulo server.sequelize
